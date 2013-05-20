@@ -77,17 +77,17 @@ int main(int argc, char **argv) {
     feature_vec.push_back(fid);
   }
 
-  int tree_num = 10;
-  double learning_rate = 1.0;
+  int tree_num = 100;
+  double learning_rate = 0.1;
   int leaf_num = 10;
   double min_leaf_rate = 0.25 * 1e-2;
   double drate = 1.0;
   double frate = 1.0;
   bool is_randomized = false;
 
-  //toybox::ensemble::RegressionTree tree(leaf_num, min_leaf_rate, frate, is_randomized);
+  toybox::ensemble::RegressionTree tree(leaf_num, min_leaf_rate, frate, is_randomized);
   //toybox::ensemble::RandomForestRegressor tree(tree_num, leaf_num, min_leaf_rate, drate, frate);
-  toybox::ensemble::GBRT tree(tree_num, learning_rate, leaf_num, min_leaf_rate, drate, frate, is_randomized);
+  //toybox::ensemble::GBRT tree(tree_num, learning_rate, leaf_num, min_leaf_rate, drate, frate, is_randomized);
 
   tree.Train(x_vec, y_vec, datum_vec, feature_vec);
 
